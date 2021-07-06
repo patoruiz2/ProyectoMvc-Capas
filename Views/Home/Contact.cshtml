@@ -1,0 +1,388 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+
+
+&nbsp
+&nbsp
+
+
+@*INICIO ALTA OK*@
+
+<!--<!--<div class="container px-4 px-lg-5 float-center">
+
+<div class="card card-outline-secondary">
+    <div class="card-header">
+        <h2>Alta de Usuario</h2>
+    </div>
+
+    <div class="card-body">
+        <form class="form" role="form" autocomplete="off" method="post">
+
+            <div class="form-group">
+                <label for="inputEmail3">E-mail</label>
+                <input type="text" class="form-control" name="nom" placeholder="Correo Electrónico" required="">
+            </div>
+            <div class="form-group">
+                <label for="inputName">Nombre</label>
+                <input type="email" class="form-control" name="email" placeholder="Nombre" required="">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3">Password</label>
+                <input type="text" class="form-control" name="pass" placeholder="Password" required="">
+            </div>
+            <div class="form-group">
+                <label for="inputName">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" name="fecha" placeholder="Fecha Nac" required="">
+            </div>
+            <div class="form-group">
+                <label for="inputName">Seleccione el rol</label>
+
+                <select name="idrol" class="form-control">
+                    <option value="1">ADMINISTRADOR</option>
+                    <option value="2">USUARIO</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="btnAltaUser" class="btn btn-success btn-lg float-left" select="1,2">Registrar</button>
+
+            </div>
+        </form>
+    </div>
+</div>
+ </div>-->
+<!--@*FIN ALTA OK*@
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+
+<head>
+    <title>User Information and Form</title>-->
+<!--JQUERY-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+<!--<link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
+<!-- Los iconos tipo Solid de Fontawesome-->
+<!--<link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>-->
+<!-- Nuestro css-->
+<!--<link rel="stylesheet" type="text/css" href="static/css/user-form.css" />-->
+<!-- DATA TABLE -->
+<!--<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
+                $('#userList').DataTable();
+            });
+    </script>
+</head>-->
+<!--Sidebar inicio-->
+<!--<div class="sidebar">
+    <center>
+        <img src="https://images.vexels.com/media/users/3/131263/isolated/preview/af6816ec67ec51da6b275a4aa08d236c-icono-de-c-iacute-rculo-de-bloqueo-by-vexels.png" id="usuario" />
+        <h4>Administración</h4>
+    </center>
+    <a href="/Admin/usuarios"> <i class="fas fa-users"></i> <span> Usuarios </span> </a>
+    <a href="/Admin/pagos"> <i class="fas fa-money-bill-wave"></i> <span> Pagos </span> </a>
+    <a href="/Admin/contacto"> <i class="fas fa-address-book"></i> <span> Contacto </span> </a>
+    <a href="#"> <i class="fas fa-info-circle"></i> <span> Información </span> </a>
+    <a href="#"> <i class="fas fa-cog"></i> <span> Opciones </span> </a>
+    <a href="#"> <i class="fas fa-sign-out-alt"></i> <span> Cerrar Sesión </span> </a>
+</div>-->
+<!--Sidebar final-->
+
+
+
+
+
+<body>
+    <div class="container">
+        <div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
+            <ul class="nav nav-tabs justify-content-end">
+                @*<li class="nav-item">
+                        <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Lista de Alumnos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Alta de Alumno</a>
+                    </li>*@
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h4>Alta de Usuario</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="card-body">
+                                    <form class="form" role="form" autocomplete="off" method="post">
+
+                                        <div class="form-group">
+                                            <label for="inputEmail3">E-mail</label>
+                                            <input type="email" class="form-control col-lg" name="nom" placeholder="Correo Electrónico" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputName">Nombre Completo</label>
+                                            <input type="text" class="form-control col-lg" name="email" placeholder="Nombre Completo" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword3">Password</label>
+                                            <input type="text" class="form-control col-lg" name="pass" placeholder="Password" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputName">Fecha de Nacimiento</label>
+                                            <input type="date" class="form-control col-lg" name="fecha" placeholder="Fecha Nac" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputName">Seleccione el rol</label>
+
+                                            <select name="idrol" class="form-control col-lg">
+                                                <option value="1">ADMINISTRADOR</option>
+                                                <option value="2">USUARIO</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" name="btnAltaUser" class="btn btn-success btn-lg col-lg float-left" select="1,2">Registrar</button>
+
+                                        </div>
+                                    </form>
+                                </div>
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Datos del Usuario</h4>
+                        </div>
+                        <div class="card-body float-center">
+
+                            @*INICIO ALTA OK*@
+
+                            @*<div class="container px-4 px-lg-5 float-center">
+
+                                <div class="card card-outline-secondary">
+                                    <div class="card-header">
+                                        <h2>Alta de Usuario</h2>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <form class="form" role="form" autocomplete="off" method="post">
+
+                                            <div class="form-group">
+                                                <label for="inputEmail3">E-mail</label>
+                                                <input type="text" class="form-control" name="nom" placeholder="Correo Electrónico" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputName">Nombre</label>
+                                                <input type="email" class="form-control" name="email" placeholder="Nombre" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword3">Password</label>
+                                                <input type="text" class="form-control" name="pass" placeholder="Password" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputName">Fecha de Nacimiento</label>
+                                                <input type="date" class="form-control" name="fecha" placeholder="Fecha Nac" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputName">Seleccione el rol</label>
+
+                                                <select name="idrol" class="form-control">
+                                                    <option value="1">ADMINISTRADOR</option>
+                                                    <option value="2">USUARIO</option>
+
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" name="btnAltaUser" class="btn btn-success btn-lg float-left" select="1,2">Registrar</button>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                 </div>*@
+                            @*FIN ALTA OK*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+<p>
+    @ViewBag.userrol
+
+</p>
+
+<!-- Footer -->
+<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Content -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Superior La Paz</h5>
+
+                <p>
+                    Creado en el año 1996 por la Fundación Nuestra Señora de la Paz, con el objetivo de ofrecer a los jóvenes y adultos un espacio formativo.
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Sobre nosotros</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            <a href="#!">PROJECTS</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">ABOUT US</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">BLOG</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">AWARDS</a>
+                        </p>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Contact details -->
+                <h5 class="font-weight-bold text-uppercase mb-4">&nbsp Contacto</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            <i class="fas fa-home mr-3"></i> Av Piedrabuena 3585,CABA
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <i class="fas fa-envelope mr-3"></i>superiorlapaz@gmail.com
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <i class="fas fa-phone mr-3"></i>+ 54-4215-4589
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <i class="fas fa-print mr-3"></i>+ 54-11-8547-4589
+                        </p>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mb-4">REDES SOCIALES</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            <a href="#!">FACEBOOK</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">INSTAGRAM</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">YOUTUBE</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">BLOG</a>
+                        </p>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+        © 2021 Copyright:
+
+    </div>
+    <!-- Copyright -->
+
+</footer>
+
+
+
+
+<!--
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+    -->

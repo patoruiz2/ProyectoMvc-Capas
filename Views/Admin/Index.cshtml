@@ -1,0 +1,159 @@
+﻿@model List<ET.User>
+@{
+    ViewBag.Title = "ListUser";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+
+<head>
+    <title>User Information and Form</title>
+
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" href="static/css/user-form.css" />
+
+    <!-- DATA TABLE -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
+            $('#userList').DataTable();
+        });
+    </script>
+</head>
+
+
+
+<!--Sidebar inicio-->
+<div class="sidebar">
+    <center>
+        <img src="https://images.vexels.com/media/users/3/131263/isolated/preview/af6816ec67ec51da6b275a4aa08d236c-icono-de-c-iacute-rculo-de-bloqueo-by-vexels.png" id="usuario" />
+        <h4>Administración</h4>
+    </center>
+    @*<a class="navbar-brand"> @Html.ActionLink("Alta de Alumno", "AddUser", "Admin", new { area = "" }, new { @class = "navbar-brand" }) </a>*@
+
+    <a href="/Admin"> <i class="fas fa-users"></i> <span> Listado </span> </a>
+    <a href="/Admin/AddUser"> <i class="fas fa-user-plus"></i> <span> Alta de alumno </span> </a>
+    
+    <a href="/Admin/Settings"> <i class="fas fa-cog"></i> <span> Opciones </span> </a>
+    <a href="/Admin/Information"> <i class="fas fa-info"></i> <span> Información </span> </a>
+
+    
+</div>
+<!--Sidebar final-->
+
+
+<body>
+    <div class="content">
+        <div class="">
+            <h2 class="text-center mb-4 card-header">Listado de usuarios</h2>
+            @if (@ViewBag.Message != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show mt-4 mb-4" role="alert">
+                    @ViewBag.Message
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <table style="border-radius: 10px" class="table-secondary table-bordered border-primary mx-auto col-lg-10 main-section">
+                    <thead class="table-dark">
+                        <tr class="text-center">
+                            <th scope="">Legajo</th>
+                            <th scope="">Email</th>
+                            <th scope="">Nombre Completo</th>
+                            <th scope="">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        @foreach (var items in Model)
+                        {
+                            if (items.idRol != 1)
+                            {
+
+                                <tr id="@items.id">
+                                    <th scope="row">@items.id</th>
+                                    <td>@items.nombre</td>
+                                    <td>@items.email</td>
+                                    <td>
+
+
+                                        <div class="btn btn-outline-danger">
+                                            @Html.ActionLink("Eliminar", "Delete", new { id = items.id })
+                                        </div>
+
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="btn btn-outline-success">
+                                            @Html.ActionLink("Modificar", "Modify", new { id = items.id, @class = "btn-outline-success" })
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            }
+
+        </div>
+      
+    </div>
+
+
+</body>
+
+
+@*@section Scripts{
+    <script type="text/javascript">
+        $('.eliminar').click(function () {
+            var idEliminar = $(this).attr("data-id");
+            $("#btnEliminar").attr("data-eliminar", idEliminar);
+            $("#myModal").modal();
+        });
+        $("#btnEliminar").click(function () {
+            var idEliminar = $(this).attr("data-eliminar");
+            $.ajax({
+                url: '/Empleado/Eliminar',
+                type: 'get',
+                data: { id: idEliminar },
+                dataType: 'json',
+                success: function (result) {
+                    console.log("Exito");
+                    $("#" + idEliminar).remove();
+                    $("#myModal").modal('hide');
+                },
+                error: function () {
+                    console.log("fallo");
+                }
+            });
+        });
+    </script>
+}*@

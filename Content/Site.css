@@ -1,0 +1,187 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+
+
+
+/* SECCION ADMIN--JOEL */
+
+.sidebar {
+    background: #2F323A;
+    padding-top: 70px;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transition: 0.5s;
+    transition-property: left;
+}
+
+    .sidebar .profile_image {
+        width: 120px;
+        height: 120px;
+        border-radius: 100px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar h4 {
+        color: rgb(255, 255, 255);
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .sidebar a {
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 60px;
+        text-decoration: none;
+        padding-left: 40px;
+        box-sizing: border-box;
+        transition-property: background;
+    }
+
+        .sidebar a:hover {
+            background: #19B3D3;
+        }
+
+    .sidebar i {
+        padding-right: 10px;
+    }
+
+        .sidebar i:hover {
+            animation: animacion-icono infinite 2s normal;
+        }
+
+@keyframes animacion-icono {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.sidebar #usuario {
+    font-size: 100px;
+    max-height: 50px;
+    max-width: 50px;
+}
+
+.sidebar img {
+    max-height: 20px;
+    max-width: 20px;
+}
+
+.content {
+    margin-left: -10px;
+    height: 100vh;
+    padding-top: 50px;
+}
+
+
+/* RESPONSIVE SECCION - ADMIN */
+
+@media (max-width: 1367px) {
+    .content {
+        padding-left: 285px;
+        padding-top: 50px;
+    }
+}
+
+.prueba{
+    background: #4cff00;
+}
+
+.sidebar3{
+    background: red;
+    padding-top: 125px;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transition: 0.5s;
+    transition-property: left;
+}
+
+    .sidebar2 .profile_image {
+        width: 120px;
+        height: 120px;
+        border-radius: 100px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar2 h4 {
+        color: rgb(255, 255, 255);
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .sidebar2 a {
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 60px;
+        text-decoration: none;
+        padding-left: 40px;
+        box-sizing: border-box;
+        transition-property: background;
+    }
+
+        .sidebar2 a:hover {
+            background: #19B3D3;
+        }
+
+    .sidebar2 i {
+        padding-right: 10px;
+    }
+
+        .sidebar2 i:hover {
+            animation: animacion-icono infinite 2s normal;
+        }
+
+@keyframes animacion-icono {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.sidebar2 #usuario {
+    font-size: 100px;
+    max-height: 50px;
+    max-width: 50px;
+}
+
+.sidebar2 img {
+    max-height: 20px;
+    max-width: 20px;
+}

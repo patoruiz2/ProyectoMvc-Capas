@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Show_data</title>
+    <link href="~/Content/boostrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="table-responsive">
+        <table class=" table table-striped table-bordered table-hover tabel-condensed">
+            <thead>
+                <tr>
+                    <th>Id_usuario</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Fecha_nacimiento</th>
+                    <th>Id_rol</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @{ 
+                    foreach (System.Data.DataRow ds in ViewBag.emp.Rows)
+                    { 
+
+
+
+                <tr>
+                    
+
+                    <td>
+
+                   <input value="@ds["id"]" /> 
+                    
+                    </td>
+                    <td>@ds["nombre"]</td>
+                    <td>@ds["email"]</td>
+                    <td>@ds["password"]</td>
+                    <td>@ds["fecha"]</td>
+                    <td>@ds["idRol"]</td>
+                    <td>
+                        <a href="/ListUser/Update_user?@ds["id"]">Actualizar</a>
+                        <a href="/ListUser/Delete_user?@ds["id"]">Eliminar</a>
+
+                    </td>
+
+                </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+﻿@model ET.User
+@{
+    ViewBag.Title = "AddUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+
+<head>
+    <title>User Information and Form</title>
+
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" href="static/css/user-form.css" />
+
+    <!-- DATA TABLE -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+            //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
+            $('#userList').DataTable();
+        });</script>
+    
+</head>
+
+
+
+<!--Sidebar inicio-->
+<div class="sidebar">
+    <center>
+        <img src="https://images.vexels.com/media/users/3/131263/isolated/preview/af6816ec67ec51da6b275a4aa08d236c-icono-de-c-iacute-rculo-de-bloqueo-by-vexels.png" id="usuario" />
+        <h4>Administración</h4>
+    </center>
+    @*<a class="navbar-brand">
+            <i class="fas fa-user-plus"></i>
+            @Html.ActionLink("Alta de Alumno", "AddUser", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+        </a>*@
+    <a href="/Admin"> <i class="fas fa-users"></i> <span> Listado </span> </a>
+    <a href="/Admin/AddUser"> <i class="fas fa-user-plus"></i> <span> Alta de alumno </span> </a>
+    
+    <a href="/Admin/Settings"> <i class="fas fa-cog"></i> <span> Opciones </span> </a>
+    <a href="/Admin/Information"> <i class="fas fa-info"></i> <span> Información </span> </a>
+    <a>
+        
+    </a>
+</div>
+<!--Sidebar final-->
+
+
+<div class="content">
+    <div class="container mt-3">
+        <div class="mx-auto col-sm-7 main-section" id="myTab" role="tablist">
+            <ul class="nav nav-tabs justify-content-end">
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+                    <div class="card" style="border-radius: 20px">
+                        <div class="card-header text-center">
+                            <h4>Alta de Estudiante</h4>
+                        </div>
+                        <img src="https://image.flaticon.com/icons/png/512/72/72648.png" class="rounded-circle mx-auto d-block mt-3" alt="Imagen" style="max-height: 200px" />
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="card-body">
+                                    @using (Html.BeginForm("addUser", "Admin", FormMethod.Post))
+                                    {
+                                        @Html.HiddenFor(x=>x.idRol, new { @Value = 2 })
+
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.nombre,
+                                            new { @class = "form-control mb-4", @style = "min-width: 300px", placeholder = "Nombre", autofocus = "autofocus", required = "" })
+
+                                            @Html.ValidationMessageFor(x => x.nombre, null, new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.PasswordFor(x => x.password,
+                                                new { @class = "form-control", @style = "min-width: 300px", placeholder = "Contraseña", @required = "" })
+
+                                            @Html.ValidationMessageFor(x => x.password, null, new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.email,
+                                                new { @class = "form-control", @style = "min-width: 300px", placeholder = "Correo Electronico", @required = "" })
+
+                                            @Html.ValidationMessageFor(x => x.email, null, new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="text-danger">
+                                                @ViewBag.Message
+                                            </div>
+                                            @Html.TextBoxFor(x => x.fecha, "{0:MM/dd/yyyy}",
+                                                new { @class = "form-control", @style = "min-width: 300px", placeholder = "Fecha", @required = "", type = "date" })
+
+                                            @Html.ValidationMessageFor(x => x.fecha, null, new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            @*@Html.DropDownListFor(x=>x.idRol ,
+                new SelectListItem(list))*@
+
+                                           @* @Html.LabelFor(x => x.idRol, "Estudiante")*@
+
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" name="btnAltaUser" class="btn btn-outline-success btn-lg col-lg float-left mt-3" select="1,2">Registrar</button>
+
+                                        </div>
+
+                                        @*<div class="form-group">
+                @Html.EditorFor(x => x.idRol,
+                    new { @class = "form-control", @style = "min-width: 499px", placeholder = "Rol", @required = "" })
+
+                @Html.ValidationMessageFor(x => x.idRol, null, new { @class = "text-danger" })
+            </div>*@
+
+                                        @*<div class="form-group">
+                @Html.DropDownListFor(x => x.idRol,
+                    new SelectList()
+
+                @Html.ValidationMessageFor(x => x.password, null, new { @class = "text-danger" })
+            </div>*@
+                                    }
+                                    @*<form class="form" role="form" autocomplete="off" method="post">
+
+
+                <label for="inputEmail3">E-mail</label>
+                <input type="email" class="form-control col-lg" name="nom" placeholder="Correo Electrónico" required="">
+            </div>
+            <div class="form-group">
+                <label for="inputName">Nombre Completo</label>
+                <input type="text" class="form-control col-lg" name="email" placeholder="Nombre Completo" required="">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3">Contraseña</label>
+                <input type="text" class="form-control col-lg" name="pass" placeholder="Contraseña" required="">
+            </div>
+            <div class="form-group">
+                <label for="inputName">Fecha de Nacimiento</label>
+                <input type="date" class="form-control col-lg" name="fecha" placeholder="Fecha Nac" required="">
+            </div>
+            <div class="form-group">
+                <label for="inputName">Seleccione el rol</label>
+
+                <select name="idrol" class="form-control col-lg">
+                    <option value="1">ADMINISTRADOR</option>
+                    <option value="2">USUARIO</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="btnAltaUser" class="btn btn-outline-success btn-lg col-lg float-left" select="1,2">Registrar</button>
+
+            </div>
+        </form>*@
+                                </div>
+
+
+
+
+                                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

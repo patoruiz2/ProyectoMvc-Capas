@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
     public class LoginController : Controller
     {
         private readonly BL.UserBL userBL = new BL.UserBL();
-        //private readonly ET.User userET = new ET.User();
+        
 
         // GET: Login
         public ActionResult Index(string message)
@@ -56,13 +56,7 @@ namespace WebApplication1.Controllers
                 }
                 
                 return View();
-
-
             }
-
-            
-            
-
             
         }
         public ActionResult Log_Out()

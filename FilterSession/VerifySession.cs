@@ -39,32 +39,9 @@ namespace WebApplication1.FilterSession
                 filterContext.Result = new RedirectResult("/Login/Index"+ex.Message);
 
             }
-            //{
-            //}
+            
 
         }
-        //public override void OnResultExecuted(ResultExecutedContext filterContext)
-        //{
-        //    base.OnResultExecuted(filterContext);
-        //    try
-        //    {
-        //        if (filterContext.Controller is AdminController == true && userA == null && userS == null)
-        //        {
-
-        //            if (filterContext.Controller is LoginController == false && userA == null && userS == null)
-        //            {
-        //                filterContext.HttpContext.Response.Redirect("/Login/Index");
-
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        filterContext.Result = new RedirectResult("/Login/Index" + ex.Message);
-
-        //    }
-
-            
-        //}
+        
     }
 }

@@ -50,14 +50,7 @@ namespace CapaDb
             Close();
             return table;
         }
-        //public SqlDataReader Reader(string procedure, List<SqlParameter> parameters = null, SqlDataReader reader = null)
-        //{
-        //    Open();
-        //    SqlCommand command = NewSqlCommand(procedure, parameters);
-        //    reader = command.ExecuteReader();
-        //    Close();
-        //    return reader;
-        //}
+        
 
         public SqlParameter NewSqlParameterString(string nameParam, string value)
         {
@@ -149,36 +142,5 @@ namespace CapaDb
 
         }
 
-
-        //public void ExecuteQuery(string procedure , List<SqlParameter> parameters)
-        //{
-
-        //    //Open();
-
-
-        //    //Close();
-
-        //}
-
-
-
-        //public UserET Seed()
-        //{
-        //    var query = NewSqlCommand("Select * From usuario");
-        //    Open();
-
-        //    SqlDataReader read = query.ExecuteReader();
-        //    var anyRow = read.HasRows;
-        //    if ( anyRow == false)
-        //    {
-        //        return new UserET
-        //        {
-        //            Nombre = "Admin",
-        //            Email = "admin@gmail.com",
-        //            Password = "admin",
-
-        //        }
-        //    }
-        //}
     }
 }

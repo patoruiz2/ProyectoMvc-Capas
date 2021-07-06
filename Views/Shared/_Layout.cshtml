@@ -40,23 +40,13 @@
                     else
                     {
                             <a class="navbar-brand"> @Html.ActionLink("Pagos", "Index", "Payment", new { area = "" }, new { @class = "navbar-brand" }) </a>
-                 }
-
-                    
-
-
-
-
+                    }
 
                 </div>
                         @if (HttpContext.Current.Session.Count > 0 && HttpContext.Current.Session["Admin"] != null || HttpContext.Current.Session["Student"] != null)
                         {
                           <a class="navbar-brand"> @Html.ActionLink("Cerrar Sesion", "Log_Out", "Logout", new { area = "" }, new { @class = "navbar-brand btn btn-outline-info" }) </a>
-
-                            
-                               
                         }
-
 
                 </div>
             

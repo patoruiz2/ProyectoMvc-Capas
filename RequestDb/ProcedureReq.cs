@@ -151,13 +151,7 @@ namespace RequestDb
                     user.id = Convert.ToInt32(read[0]);
                     user.nombre = read.GetString(1);
                     user.email = read.GetString(2);
-                    //user.password = read.GetString(3);
-
                     user.password = epass;
-
-                    //user.fecha = read.GetDateTime(4);
-
-                    //user.idRol = read.GetInt32(5);
                     user.fecha = read.GetDateTime(5);
                     user.idRol = read.GetInt32(4);
 
@@ -191,20 +185,11 @@ namespace RequestDb
                 {
                     string epass = Security.Sec_Encrypt.GetSHA256(read.GetString(3));
 
-                    
-
-
                     user.id = Convert.ToInt32(read[0]);
                     user.nombre = read.GetString(1);
                     user.email = read.GetString(2);
-
-                    //user.password = read.GetString(3);
-
                     user.password = epass;
-                    //user.fecha = read.GetDateTime(4);
                     user.idRol = read.GetInt32(4);
-
-                    //user.idRol = read.GetInt32(5);
                     user.fecha = read.GetDateTime(5);
 
                 }

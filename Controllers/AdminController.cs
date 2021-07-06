@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebApplication1.FilterAuth;
-using WebApplication1.Models;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
